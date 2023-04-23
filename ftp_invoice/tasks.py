@@ -1,6 +1,5 @@
 import requests
 import os
-import random
 
 from celery import shared_task
 from datetime import datetime
@@ -24,7 +23,6 @@ def process_invoice():
         # "2023-04-21T14:11:44.059Z",
 
         time_and_date = date_time_obj.strftime("%Y-%m-%dT%H:%M:%S")
-        print(time_and_date)
         data = {"customer_id": row["CID"], 
                 "receipt_nr": str(indx+100),
                 "time_and_date": time_and_date,
@@ -33,9 +31,7 @@ def process_invoice():
                 }
         print(data)
         req = requests.post(URL, data, headers=HEADERS)
-        print(req.text)
-        print(req.status_code)
+        print(req.status_code, req.text)
         if req.status_code == 200 or req.status_code == 201:
             print("DONE")
         
-process_invoice()
