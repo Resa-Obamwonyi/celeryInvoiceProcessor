@@ -1,0 +1,5 @@
+venv
+.env
+db.sqlite3
+dump.rdb
+ftp_invoice/gfg.txt
