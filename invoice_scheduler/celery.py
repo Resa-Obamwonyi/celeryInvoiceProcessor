@@ -18,8 +18,7 @@ app.conf.beat_schedule = {
     # Executes daily at midnight
     'process_invoice-daily': {
         'task': 'process_invoice_task',
-        # 'schedule': crontab(minute=0, hour=0),
-        'schedule': crontab(minute='*/5'),
+        'schedule': crontab(minute=0, hour=0),
     },
 }
 
