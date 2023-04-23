@@ -3,3 +3,6 @@ venv
 db.sqlite3
 dump.rdb
 ftp_invoice/gfg.txt
+celery.beat.log
+celery.log
+celerybeat-schedule.db

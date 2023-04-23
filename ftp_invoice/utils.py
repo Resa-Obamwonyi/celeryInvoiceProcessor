@@ -35,6 +35,7 @@ def fetch_invoice_from_ftp():
         csv_dict_reader = DictReader(file, delimiter=";")
         for row in csv_dict_reader:
             invoice_content.append(row)
+        print("Invoiced data all saved!!")
             
     # Close the Connection
     ftp_server.quit()

@@ -1,0 +1,1007 @@
+[2023-04-23 11:46:44,290: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 11:46:44,292: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 11:46:45,299: INFO/MainProcess] mingle: all alone
+[2023-04-23 11:46:45,319: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 11:46:45,320: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 11:47:23,994: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 11:47:23,996: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 11:47:25,005: INFO/MainProcess] mingle: all alone
+[2023-04-23 11:47:25,025: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 11:47:25,025: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:15:29,343: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:15:29,348: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:15:30,386: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/control.py:56: DuplicateNodenameWarning: Received multiple replies from node name: celery@Theresas-MacBook-Pro.local.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  warnings.warn(DuplicateNodenameWarning(
+
+[2023-04-23 12:15:30,386: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:15:30,403: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:15:30,403: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:18:00,061: ERROR/MainProcess] Received unregistered task of type 'tasks.process_invoice_task'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'tasks.process_invoice_task', 'id': '61324cac-c6d7-49dd-96e0-35f1e47ea8ba', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '61324cac-c6d7-49dd-96e0-35f1e47ea8ba', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen67993@Theresas-MacBook-Pro.local', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'tasks.process_invoice_task'
+[2023-04-23 12:40:12,841: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:40:12,845: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:40:13,851: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:40:13,871: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:40:13,871: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:40:13,874: INFO/MainProcess] Task process_invoice_task[9d409a5b-55b3-48a6-8eb4-10db2a454b13] received
+[2023-04-23 12:40:13,893: ERROR/ForkPoolWorker-7] Task process_invoice_task[9d409a5b-55b3-48a6-8eb4-10db2a454b13] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 12:44:49,477: INFO/MainProcess] Task process_invoice_task[6ae7f4c2-a4b8-4a7e-a679-df6d3f69ada8] received
+[2023-04-23 12:44:49,505: ERROR/ForkPoolWorker-7] Task process_invoice_task[6ae7f4c2-a4b8-4a7e-a679-df6d3f69ada8] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 12:44:53,102: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:44:53,103: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:44:54,112: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:44:54,134: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:44:54,135: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:48:48,688: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:48:48,691: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:48:49,698: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:48:49,722: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:48:49,722: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:48:49,726: ERROR/MainProcess] Received unregistered task of type 'tasks.process_invoice_task'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'tasks.process_invoice_task', 'id': '5c3c6188-e65b-434c-8d5e-c59f6578cee7', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '5c3c6188-e65b-434c-8d5e-c59f6578cee7', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen70447@Theresas-MacBook-Pro.local', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'tasks.process_invoice_task'
+[2023-04-23 12:50:00,014: ERROR/MainProcess] Received unregistered task of type 'tasks.process_invoice_task'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (77b)
+
+Thw full contents of the message headers:
+{'lang': 'py', 'task': 'tasks.process_invoice_task', 'id': 'd1d5fd8f-8264-41b0-8ded-cc0922f12a40', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'd1d5fd8f-8264-41b0-8ded-cc0922f12a40', 'parent_id': None, 'argsrepr': '()', 'kwargsrepr': '{}', 'origin': 'gen70447@Theresas-MacBook-Pro.local', 'ignore_result': False}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 591, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'tasks.process_invoice_task'
+[2023-04-23 12:53:47,606: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:53:47,608: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:53:48,614: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:53:48,636: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:53:48,636: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:53:48,638: INFO/MainProcess] Task process_invoice_task[32b2846c-97c6-4a95-80b3-626256051f20] received
+[2023-04-23 12:53:48,653: ERROR/ForkPoolWorker-7] Task process_invoice_task[32b2846c-97c6-4a95-80b3-626256051f20] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: './invoices_230201.csv'
+[2023-04-23 12:55:09,209: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:55:09,210: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:55:10,218: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:55:10,242: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:55:10,243: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:55:10,249: INFO/MainProcess] Task process_invoice_task[2ed67dd7-33a8-465c-aee2-11dc0bb07ee9] received
+[2023-04-23 12:55:10,266: ERROR/ForkPoolWorker-7] Task process_invoice_task[2ed67dd7-33a8-465c-aee2-11dc0bb07ee9] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'ftp_invoice.invoices_230201.csv'
+[2023-04-23 12:56:45,480: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 12:56:45,483: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 12:56:46,490: INFO/MainProcess] mingle: all alone
+[2023-04-23 12:56:46,515: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 12:56:46,515: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 12:56:46,517: INFO/MainProcess] Task process_invoice_task[84cbf97e-832d-4cb6-85d1-b583c56ef5ca] received
+[2023-04-23 12:56:46,532: ERROR/ForkPoolWorker-7] Task process_invoice_task[84cbf97e-832d-4cb6-85d1-b583c56ef5ca] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 12:57:00,016: INFO/MainProcess] Task process_invoice_task[cac36631-c64b-45b2-8be7-34aabb570671] received
+[2023-04-23 12:57:00,017: ERROR/ForkPoolWorker-7] Task process_invoice_task[cac36631-c64b-45b2-8be7-34aabb570671] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 13:00:02,296: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 13:00:02,298: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 13:00:03,304: INFO/MainProcess] mingle: all alone
+[2023-04-23 13:00:03,317: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 13:00:03,318: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 13:00:03,319: INFO/MainProcess] Task process_invoice_task[45474366-a7f3-47e1-ae6b-fb2aa5f7696a] received
+[2023-04-23 13:00:03,319: INFO/MainProcess] Task process_invoice_task[6819f5e2-b87a-4820-ac97-d9d6d218d87a] received
+[2023-04-23 13:00:03,330: ERROR/ForkPoolWorker-7] Task process_invoice_task[45474366-a7f3-47e1-ae6b-fb2aa5f7696a] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 13:00:03,330: ERROR/ForkPoolWorker-8] Task process_invoice_task[6819f5e2-b87a-4820-ac97-d9d6d218d87a] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 13:03:00,053: INFO/MainProcess] Task process_invoice_task[e35b68fe-28b9-4418-9435-be7888a0ea1a] received
+[2023-04-23 13:03:00,089: ERROR/ForkPoolWorker-7] Task process_invoice_task[e35b68fe-28b9-4418-9435-be7888a0ea1a] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 13:03:13,986: INFO/MainProcess] Task process_invoice_task[8351060b-4706-4aa9-ae88-a445ad09eea3] received
+[2023-04-23 13:03:13,988: ERROR/ForkPoolWorker-7] Task process_invoice_task[8351060b-4706-4aa9-ae88-a445ad09eea3] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 13:03:17,072: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 13:03:17,074: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 13:03:18,082: INFO/MainProcess] mingle: all alone
+[2023-04-23 13:03:18,104: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 13:03:18,104: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 13:06:00,016: INFO/MainProcess] Task process_invoice_task[979e0dda-82e9-4f9f-a7d3-da7f5f8f5803] received
+[2023-04-23 13:06:00,029: ERROR/ForkPoolWorker-7] Task process_invoice_task[979e0dda-82e9-4f9f-a7d3-da7f5f8f5803] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 13:06:00,034: INFO/MainProcess] Task process_invoice_task[f7e8871b-6e4d-46f3-a657-59a9022d6f6b] received
+[2023-04-23 13:06:01,388: ERROR/ForkPoolWorker-7] Task process_invoice_task[f7e8871b-6e4d-46f3-a657-59a9022d6f6b] raised unexpected: error_perm('550 Failed to open file.')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 30, in fetch_invoice_from_ftp
+    ftp_server.retrbinary(f"RETR {filename}", file.write)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 432, in retrbinary
+    with self.transfercmd(cmd, rest) as conn:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 389, in transfercmd
+    return self.ntransfercmd(cmd, rest)[0]
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 355, in ntransfercmd
+    resp = self.sendcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 277, in sendcmd
+    return self.getresp()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 250, in getresp
+    raise error_perm(resp)
+ftplib.error_perm: 550 Failed to open file.
+[2023-04-23 13:09:00,014: INFO/MainProcess] Task process_invoice_task[624f467e-947f-4805-9348-11a139933a8c] received
+[2023-04-23 13:09:00,015: INFO/MainProcess] Task process_invoice_task[d8d684b1-1528-4479-b78a-179f43c5a3ed] received
+[2023-04-23 13:09:01,962: WARNING/ForkPoolWorker-7] invoice uploaded!!
+[2023-04-23 13:09:02,268: INFO/ForkPoolWorker-7] Task process_invoice_task[624f467e-947f-4805-9348-11a139933a8c] succeeded in 2.2424033749999808s: None
+[2023-04-23 13:09:04,005: INFO/ForkPoolWorker-7] Task process_invoice_task[d8d684b1-1528-4479-b78a-179f43c5a3ed] succeeded in 3.979653333999977s: None
+[2023-04-23 13:12:00,008: INFO/MainProcess] Task process_invoice_task[b489bc8e-54a5-49b4-9a4c-d894901a6626] received
+[2023-04-23 13:12:00,008: INFO/MainProcess] Task process_invoice_task[03ef45c2-0828-4b49-9ae4-9b3d494927a7] received
+[2023-04-23 13:12:00,032: ERROR/ForkPoolWorker-7] Task process_invoice_task[03ef45c2-0828-4b49-9ae4-9b3d494927a7] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 30, in fetch_invoice_from_ftp
+    ftp_server.retrbinary(f"RETR {filename}", file.write)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 431, in retrbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:12:00,064: ERROR/ForkPoolWorker-7] Task process_invoice_task[b489bc8e-54a5-49b4-9a4c-d894901a6626] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:15:00,017: INFO/MainProcess] Task process_invoice_task[e5a5a5d1-cd03-4436-8bdf-db886c4d2286] received
+[2023-04-23 13:15:00,018: INFO/MainProcess] Task process_invoice_task[0e0e929f-2856-4215-bb9e-0973d6c6976d] received
+[2023-04-23 13:15:00,033: ERROR/ForkPoolWorker-7] Task process_invoice_task[e5a5a5d1-cd03-4436-8bdf-db886c4d2286] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:15:00,043: ERROR/ForkPoolWorker-7] Task process_invoice_task[0e0e929f-2856-4215-bb9e-0973d6c6976d] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 30, in fetch_invoice_from_ftp
+    ftp_server.retrbinary(f"RETR {filename}", file.write)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 431, in retrbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:18:00,031: INFO/MainProcess] Task process_invoice_task[57c5f3b8-1c2b-4ee2-9c46-f020880ad946] received
+[2023-04-23 13:18:00,026: INFO/MainProcess] Task process_invoice_task[e81104ed-cd3a-4de2-bbbf-93af04ca4354] received
+[2023-04-23 13:18:00,052: ERROR/ForkPoolWorker-7] Task process_invoice_task[57c5f3b8-1c2b-4ee2-9c46-f020880ad946] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:18:00,059: ERROR/ForkPoolWorker-7] Task process_invoice_task[e81104ed-cd3a-4de2-bbbf-93af04ca4354] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 30, in fetch_invoice_from_ftp
+    ftp_server.retrbinary(f"RETR {filename}", file.write)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 431, in retrbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:21:00,029: INFO/MainProcess] Task process_invoice_task[e5ead052-3964-4ea1-8b92-b1661a909612] received
+[2023-04-23 13:21:00,033: INFO/MainProcess] Task process_invoice_task[c46a80eb-3e8d-47a6-9efa-3fae30f30bab] received
+[2023-04-23 13:21:00,064: ERROR/ForkPoolWorker-7] Task process_invoice_task[e5ead052-3964-4ea1-8b92-b1661a909612] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 30, in fetch_invoice_from_ftp
+    ftp_server.retrbinary(f"RETR {filename}", file.write)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 431, in retrbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:21:00,067: ERROR/ForkPoolWorker-7] Task process_invoice_task[c46a80eb-3e8d-47a6-9efa-3fae30f30bab] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    # send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 13:22:51,382: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 332, in start
+    blueprint.start(self)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 628, in start
+    c.loop(*c.loop_args())
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/asynchronous/hub.py", line 362, in create_loop
+    cb(*cbargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 1326, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 562, in on_readable
+    chan.handlers[type]()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 906, in _receive
+    ret.append(self._receive_one(c))
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 916, in _receive_one
+    response = c.parse_response()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1531, in parse_response
+    response = self._execute(conn, try_read)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1507, in _execute
+    return conn.retry.call_with_retry(
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/retry.py", line 49, in call_with_retry
+    fail(error)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1509, in <lambda>
+    lambda error: self._disconnect_raise_connect(conn, error),
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1496, in _disconnect_raise_connect
+    raise error
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1508, in <lambda>
+    lambda: command(*args, **kwargs),
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1529, in try_read
+    return conn.read_response()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 865, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 346, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 356, in _read_response
+    raw = self._buffer.readline()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 259, in readline
+    self._read_from_socket()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 212, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2023-04-23 13:22:51,479: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py:367: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered back to the queue.
+You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss setting.
+In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2023-04-23 13:22:51,485: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2023-04-23 13:22:51,384: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 332, in start
+    blueprint.start(self)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py", line 628, in start
+    c.loop(*c.loop_args())
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/asynchronous/hub.py", line 362, in create_loop
+    cb(*cbargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 1326, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 562, in on_readable
+    chan.handlers[type]()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 906, in _receive
+    ret.append(self._receive_one(c))
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/kombu/transport/redis.py", line 916, in _receive_one
+    response = c.parse_response()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1531, in parse_response
+    response = self._execute(conn, try_read)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1507, in _execute
+    return conn.retry.call_with_retry(
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/retry.py", line 49, in call_with_retry
+    fail(error)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1509, in <lambda>
+    lambda error: self._disconnect_raise_connect(conn, error),
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1496, in _disconnect_raise_connect
+    raise error
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1508, in <lambda>
+    lambda: command(*args, **kwargs),
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/client.py", line 1529, in try_read
+    return conn.read_response()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 865, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 346, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 356, in _read_response
+    raw = self._buffer.readline()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 259, in readline
+    self._read_from_socket()
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/redis/connection.py", line 212, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2023-04-23 13:22:51,495: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/worker/consumer/consumer.py:367: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered back to the queue.
+You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss setting.
+In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2023-04-23 13:22:51,499: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 2.00 seconds... (1/100)
+
+[2023-04-23 13:22:53,495: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 4.00 seconds... (2/100)
+
+[2023-04-23 13:22:53,508: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 4.00 seconds... (2/100)
+
+[2023-04-23 13:22:57,520: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 6.00 seconds... (3/100)
+
+[2023-04-23 13:22:57,528: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 6.00 seconds... (3/100)
+
+[2023-04-23 13:23:03,553: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 8.00 seconds... (4/100)
+
+[2023-04-23 13:23:03,561: ERROR/MainProcess] consumer: Cannot connect to redis://localhost:6379//: Error 61 connecting to localhost:6379. Connection refused..
+Trying again in 8.00 seconds... (4/100)
+
+[2023-04-23 14:06:07,188: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 14:06:07,192: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 14:06:08,203: INFO/MainProcess] mingle: all alone
+[2023-04-23 14:06:08,226: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 14:06:08,226: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 14:06:08,230: INFO/MainProcess] Task process_invoice_task[3cfbcc8d-50d1-41e7-a2f5-c63286ba1f89] received
+[2023-04-23 14:06:10,226: WARNING/ForkPoolWorker-7] invoice uploaded!!
+[2023-04-23 14:06:12,115: INFO/ForkPoolWorker-7] Task process_invoice_task[3cfbcc8d-50d1-41e7-a2f5-c63286ba1f89] succeeded in 3.8837083339999996s: None
+[2023-04-23 14:07:14,062: INFO/MainProcess] Task process_invoice_task[5f1d31bd-3b91-4270-8042-e5b49bd033d8] received
+[2023-04-23 14:07:14,082: ERROR/ForkPoolWorker-7] Task process_invoice_task[5f1d31bd-3b91-4270-8042-e5b49bd033d8] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 14:07:16,914: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 14:07:16,916: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 14:07:17,926: INFO/MainProcess] mingle: all alone
+[2023-04-23 14:07:17,948: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 14:07:17,948: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 14:09:00,030: INFO/MainProcess] Task process_invoice_task[115f7cb7-e224-4c6f-8d84-d62695a9a0f9] received
+[2023-04-23 14:09:00,048: INFO/MainProcess] Task process_invoice_task[35a7c779-88af-41e1-8b63-a6ac1e6c18e2] received
+[2023-04-23 14:09:00,066: ERROR/ForkPoolWorker-7] Task process_invoice_task[35a7c779-88af-41e1-8b63-a6ac1e6c18e2] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 14:09:02,000: WARNING/ForkPoolWorker-7] invoice uploaded!!
+[2023-04-23 14:09:03,752: WARNING/ForkPoolWorker-7] Invoiced data all saved!!
+[2023-04-23 14:09:04,102: INFO/ForkPoolWorker-7] Task process_invoice_task[115f7cb7-e224-4c6f-8d84-d62695a9a0f9] succeeded in 4.0667273340000065s: None
+[2023-04-23 14:11:29,103: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 14:11:29,104: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 14:11:30,112: INFO/MainProcess] mingle: all alone
+[2023-04-23 14:11:30,134: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 14:11:30,134: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 14:11:30,137: INFO/MainProcess] Task process_invoice_task[03d5b09f-12a7-45f7-beb6-08a16521c9fb] received
+[2023-04-23 14:11:31,988: WARNING/ForkPoolWorker-7] invoice uploaded!!
+[2023-04-23 14:11:33,867: WARNING/ForkPoolWorker-7] Invoiced data all saved!!
+[2023-04-23 14:11:34,175: INFO/ForkPoolWorker-7] Task process_invoice_task[03d5b09f-12a7-45f7-beb6-08a16521c9fb] succeeded in 4.037228s: None
+[2023-04-23 14:13:45,083: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 14:13:45,085: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 14:13:46,095: INFO/MainProcess] mingle: all alone
+[2023-04-23 14:13:46,115: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 14:13:46,116: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 14:13:46,118: INFO/MainProcess] Task process_invoice_task[7e0ca6b3-2f74-4529-a9f3-4998aa588b34] received
+[2023-04-23 14:13:48,113: WARNING/ForkPoolWorker-7] invoice uploaded!!
+[2023-04-23 14:13:49,661: WARNING/ForkPoolWorker-7] Invoiced data all saved!!
+[2023-04-23 14:13:49,956: INFO/ForkPoolWorker-7] Task process_invoice_task[7e0ca6b3-2f74-4529-a9f3-4998aa588b34] succeeded in 3.837025833s: None
+[2023-04-23 14:15:00,025: INFO/MainProcess] Task process_invoice_task[9bde5543-0242-401f-b7a1-0d9a2d8bf251] received
+[2023-04-23 14:15:00,067: ERROR/ForkPoolWorker-7] Task process_invoice_task[9bde5543-0242-401f-b7a1-0d9a2d8bf251] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 14:21:26,659: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 14:21:26,662: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 14:21:27,671: INFO/MainProcess] mingle: all alone
+[2023-04-23 14:21:27,690: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 14:21:27,691: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 14:21:27,693: INFO/MainProcess] Task process_invoice_task[dd871b05-57bc-4cef-8dbf-5b47363ec4f5] received
+[2023-04-23 14:21:29,506: WARNING/ForkPoolWorker-7] invoice uploaded!!
+[2023-04-23 14:21:31,060: WARNING/ForkPoolWorker-7] Invoiced data all saved!!
+[2023-04-23 14:21:31,378: INFO/ForkPoolWorker-7] Task process_invoice_task[dd871b05-57bc-4cef-8dbf-5b47363ec4f5] succeeded in 3.68400125s: None
+[2023-04-23 14:25:00,017: INFO/MainProcess] Task process_invoice_task[439df3f7-e286-4e4e-b927-2cd9b1c59755] received
+[2023-04-23 14:25:00,072: ERROR/ForkPoolWorker-7] Task process_invoice_task[439df3f7-e286-4e4e-b927-2cd9b1c59755] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 14:30:00,037: INFO/MainProcess] Task process_invoice_task[88db1c57-7856-443b-96e3-0289cdfa9f6e] received
+[2023-04-23 14:30:00,049: ERROR/ForkPoolWorker-7] Task process_invoice_task[88db1c57-7856-443b-96e3-0289cdfa9f6e] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 14:35:00,034: INFO/MainProcess] Task process_invoice_task[8138a474-6f75-4fca-a8d1-6c9c1d5fb7d6] received
+[2023-04-23 14:35:00,093: ERROR/ForkPoolWorker-7] Task process_invoice_task[8138a474-6f75-4fca-a8d1-6c9c1d5fb7d6] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 15:08:10,632: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 15:08:10,639: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 15:08:11,645: INFO/MainProcess] mingle: all alone
+[2023-04-23 15:08:11,665: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 15:08:11,665: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 15:08:11,667: INFO/MainProcess] Task process_invoice_task[dd760053-e843-47b3-9a83-e6d52043c299] received
+[2023-04-23 15:08:11,669: WARNING/ForkPoolWorker-6] [{'TS': '01.02.23 14:03', 'N': 'Stay 3 Nights', 'T': '234.03€', 'CID': '3454543', 'FN': 'Ben', 'LN': 'Highlander'}, {'TS': '01.02.23 14:03', 'N': 'Drinks', 'T': '34.03€', 'CID': '3454543', 'FN': 'Ben', 'LN': 'Highlander'}, {'TS': '01.02.23 14:03', 'N': 'Massage', 'T': '50 €', 'CID': '3454543', 'FN': 'Ben', 'LN': 'Highlander'}, {'TS': '03.12.22 16:00', 'N': 'Stay 1 Night', 'T': '100 €', 'CID': '923242', 'FN': 'Lisa', 'LN': 'Smith'}]
+[2023-04-23 15:08:11,669: WARNING/ForkPoolWorker-6] SENDING DATA
+[2023-04-23 15:08:11,670: WARNING/ForkPoolWorker-6] TASK DATA:
+[2023-04-23 15:08:11,670: WARNING/ForkPoolWorker-6]  
+[2023-04-23 15:08:11,670: WARNING/ForkPoolWorker-6] {'customer_id': '3454543', 'receipt_nr': '100', 'time_and_date': '2023-02-01T14:03:00', 'total': 234.03, 'receipt_text': 'Stay 3 Nights'}
+[2023-04-23 15:08:12,313: WARNING/ForkPoolWorker-6] 403
+[2023-04-23 15:08:12,314: WARNING/ForkPoolWorker-6]  
+[2023-04-23 15:08:12,314: WARNING/ForkPoolWorker-6] {"detail":"Invalid API Key"}
+[2023-04-23 15:08:12,315: WARNING/ForkPoolWorker-6] TASK DATA:
+[2023-04-23 15:08:12,315: WARNING/ForkPoolWorker-6]  
+[2023-04-23 15:08:12,315: WARNING/ForkPoolWorker-6] {'customer_id': '3454543', 'receipt_nr': '101', 'time_and_date': '2023-02-01T14:03:00', 'total': 34.03, 'receipt_text': 'Drinks'}
+[2023-04-23 15:08:13,049: WARNING/ForkPoolWorker-6] 403
+[2023-04-23 15:08:13,050: WARNING/ForkPoolWorker-6]  
+[2023-04-23 15:08:13,050: WARNING/ForkPoolWorker-6] {"detail":"Invalid API Key"}
+[2023-04-23 15:08:13,053: INFO/ForkPoolWorker-6] Task process_invoice_task[dd760053-e843-47b3-9a83-e6d52043c299] succeeded in 1.3847292920000003s: None
+[2023-04-23 15:10:15,697: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 15:10:15,700: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 15:10:16,712: INFO/MainProcess] mingle: all alone
+[2023-04-23 15:10:16,731: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 15:10:16,731: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 15:10:16,734: INFO/MainProcess] Task process_invoice_task[39870768-d718-426c-84ab-5f32b65d63f8] received
+[2023-04-23 15:10:16,751: ERROR/ForkPoolWorker-7] Task process_invoice_task[39870768-d718-426c-84ab-5f32b65d63f8] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 15:15:00,046: INFO/MainProcess] Task process_invoice_task[25c9e9b9-fb13-4c20-99b1-16626d7477f6] received
+[2023-04-23 15:15:00,134: ERROR/ForkPoolWorker-7] Task process_invoice_task[25c9e9b9-fb13-4c20-99b1-16626d7477f6] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 15:20:00,016: INFO/MainProcess] Task process_invoice_task[e81e8134-e805-41e8-b09c-4fc054c2c154] received
+[2023-04-23 15:20:00,038: ERROR/ForkPoolWorker-7] Task process_invoice_task[e81e8134-e805-41e8-b09c-4fc054c2c154] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 15:25:00,023: INFO/MainProcess] Task process_invoice_task[72bdb71b-a8ee-4aa4-bac4-5b07250a64ec] received
+[2023-04-23 15:25:00,070: ERROR/ForkPoolWorker-7] Task process_invoice_task[72bdb71b-a8ee-4aa4-bac4-5b07250a64ec] raised unexpected: FileNotFoundError(2, 'No such file or directory')
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 20, in send_invoice_to_ftp
+    with open(filename, "rb") as file:
+FileNotFoundError: [Errno 2] No such file or directory: 'invoices_230201.csv'
+[2023-04-23 15:26:30,688: INFO/MainProcess] Task process_invoice_task[4bfb7536-96a0-4e6c-a92d-595672a84ec4] received
+[2023-04-23 15:26:30,699: ERROR/ForkPoolWorker-7] Task process_invoice_task[4bfb7536-96a0-4e6c-a92d-595672a84ec4] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
+[2023-04-23 15:26:31,922: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 15:26:31,924: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 15:26:32,975: INFO/MainProcess] mingle: all alone
+[2023-04-23 15:26:32,994: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 15:26:32,995: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 15:26:50,666: INFO/MainProcess] Connected to redis://localhost:6379//
+[2023-04-23 15:26:50,669: INFO/MainProcess] mingle: searching for neighbors
+[2023-04-23 15:26:51,682: INFO/MainProcess] mingle: all alone
+[2023-04-23 15:26:51,705: WARNING/MainProcess] /Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2023-04-23 15:26:51,705: INFO/MainProcess] celery@Theresas-MacBook-Pro.local ready.
+[2023-04-23 15:26:51,707: INFO/MainProcess] Task process_invoice_task[47069d8f-daf9-429f-b257-602a0bacaa6e] received
+[2023-04-23 15:26:51,746: ERROR/ForkPoolWorker-7] Task process_invoice_task[47069d8f-daf9-429f-b257-602a0bacaa6e] raised unexpected: AttributeError("'NoneType' object has no attribute 'sendall'")
+Traceback (most recent call last):
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 451, in trace_task
+    R = retval = fun(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/venv/lib/python3.8/site-packages/celery/app/trace.py", line 734, in __protected_call__
+    return self.run(*args, **kwargs)
+  File "/Users/resa/Documents/hello-again/ftp_invoice/tasks.py", line 18, in process_invoice_task
+    invoice_data = fetch_invoice_from_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 26, in fetch_invoice_from_ftp
+    send_invoice_to_ftp()
+  File "/Users/resa/Documents/hello-again/ftp_invoice/utils.py", line 21, in send_invoice_to_ftp
+    ftp_server.storbinary(f"STOR {filename}", file)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 493, in storbinary
+    self.voidcmd('TYPE I')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 281, in voidcmd
+    self.putcmd(cmd)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 203, in putcmd
+    self.putline(line)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/ftplib.py", line 198, in putline
+    self.sock.sendall(line.encode(self.encoding))
+AttributeError: 'NoneType' object has no attribute 'sendall'
